@@ -1,0 +1,22 @@
+.app-header{
+    background-color: #76b39dba;
+    color: #346357;
+    padding: 1em;
+    gap: 1em;
+    padding-top: 1em;
+    & h1 {
+        margin: 0;
+    }
+    & nav{
+        gap: 1em;
+        & a{
+            color: #346357;
+            font-size: 20px;
+            text-decoration: none;
+            font-weight: 600;
+            &:hover{
+                text-decoration: underline;
+            }
+        }
+    }
+}

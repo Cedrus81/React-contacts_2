@@ -1,0 +1,16 @@
+.contact-preview{
+    position: relative;
+    background-color: #346357;
+    color: #fcffc1;
+    padding: 1em;
+    gap: 1em;
+    border-radius: 0.25em;
+    line-break: anywhere;
+    .delete-contact{
+        position: absolute;
+        font-size: 18px;
+        font-weight: 700;
+        top: 0.2em;
+        right: 0.2em;
+    }
+}
