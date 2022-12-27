@@ -1,13 +1,4 @@
-// import { Component } from 'react'
 import { TransferPreview } from './transfer-preview.jsx'
-// export class TransferList extends Component {
-//     render() {
-
-//         return (
-//             <div>transfer-list</div>
-//         )
-//     }
-// }
 
 export function TransferList({ list }) {
     return (

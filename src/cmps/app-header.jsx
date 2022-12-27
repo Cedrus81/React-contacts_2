@@ -29,7 +29,6 @@ export class _AppHeader extends Component {
     }
     render() {
         const { user } = this.state
-        console.log(user)
         return (
             <header className="app-header flex align-center justify-between">
                 <h1 className="logo">Kontakt</h1>

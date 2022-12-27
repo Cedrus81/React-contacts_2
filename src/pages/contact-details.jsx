@@ -2,7 +2,6 @@ import { Component } from 'react'
 import { contactService } from '../services/contact.service'
 
 import { Transfer } from '../cmps/transfer.jsx'
-import { TransferList } from '../cmps/transfer-list.jsx'
 export class ContactDetails extends Component {
     state = {
         contact: null,
@@ -27,6 +26,7 @@ export class ContactDetails extends Component {
         return (
             <main className="flex align-center justify-center">
                 <section className="contact-details">
+                    <Transfer contact={contact} />
                     <h1>Details:</h1>
                     <img src={avatar} alt="" />
                     <h3>Name: {contact.name}</h3>
@@ -34,8 +34,7 @@ export class ContactDetails extends Component {
                     <h3>Email: {contact.email}</h3>
                     <button className="btn neutral" onClick={this.onBack}>Back</button>
                 </section>
-                <Transfer />
-                <TransferList list={contact.transferList} />
+
             </main>
         )
     }

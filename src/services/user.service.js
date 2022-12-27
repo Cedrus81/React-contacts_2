@@ -22,30 +22,35 @@ setUsers()
 function setUsers() {
     let users = storageService.load(USERS_KEY)
     if (!users || !users.length) {
+        debugger
         users = gUsers
         storageService.save(USERS_KEY, users)
     }
 }
 
+
 function getLoggedInUser() {
-    return JSON.parse(sessionStorage.getItem(STORAGE_KEY_LOGGEDIN_USER))
+    const user = sessionStorage.getItem(STORAGE_KEY_LOGGEDIN_USER)
+    return user === 'undefined' ? null : JSON.parse(user)
 }
 
 function signup(name) {
     const user = _makeUser(name)
-    _setLoggedInUser(user)
     saveUser(user)
+    _setLoggedInUser(user._id)
 }
 
 function login(name) {
     const user = gUsers.find(user => user.name === name)
-    if (user) _setLoggedInUser(user)
+    if (user) _setLoggedInUser(user._id)
     else {
         throw new Error(`User ${name} not found`)
     }
 }
 
-function _setLoggedInUser(user) {
+function _setLoggedInUser(userId) {
+    const users = storageService.load(USERS_KEY)
+    const user = users.find(user => user._id === userId)
     sessionStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(user))
 }
 
@@ -55,12 +60,16 @@ function logout() {
 
 function addTransaction(contact, amount) {
     const user = getLoggedInUser()
+    if (!user) throw new Error('You must be logged in')
+    if (amount > user.coins) throw new Error(`Insufficient funds, you are missing ${amount - user.coins} coins for that action`)
+
     user.transactions.unshift({
         toId: contact._id,
         to: contact.name,
         at: Date.now(),
         amount,
     })
+    user.coins -= amount
     saveUser(user)
 }
 
@@ -72,7 +81,8 @@ function saveUser(user) {
     } else {
         gUsers.push(user)
     }
-    storageService.setItem(USERS_KEY, gUsers)
+    storageService.save(USERS_KEY, gUsers)
+    _setLoggedInUser(user._id)
 }
 
 function _makeUser(name) {
