@@ -9,7 +9,10 @@
     }
     & nav{
         gap: 1em;
-        & a{
+        a,
+        button{
+            border: 0;
+            background-color: transparent;
             color: #346357;
             font-size: 20px;
             text-decoration: none;

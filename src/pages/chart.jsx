@@ -16,21 +16,21 @@ export class Charts extends Component {
         const { marketData } = this.state
         return (
             <article className="flex wrap justify-center">
-                {marketData.map(category =>{
-                    console.log(category.data[category])
-                return <section className="chart-piece" key={category.title}>
-                            <h1>{category.title}</h1>
-                            <LineChart width={600} height={300} data={category.data} margin={{ top: 5, right: 20, bottom: 5, left: 0 }}>
-                                <Line type="monotone" dataKey={category.title} stroke="#f95959" />
-                                <CartesianGrid stroke="#233142" strokeDasharray="5 5" />
-                                <XAxis dataKey="time" />
-                                <YAxis />
-                                <Tooltip />
-                            </LineChart>
-                        </section>}
+                {marketData.map(category => {
+                    return <section className="chart-piece" key={category.title}>
+                        <h1>{category.title}</h1>
+                        <LineChart width={600} height={300} data={category.data} margin={{ top: 5, right: 20, bottom: 5, left: 0 }}>
+                            <Line type="monotone" dataKey={category.title} stroke="#f95959" />
+                            <CartesianGrid stroke="#233142" strokeDasharray="5 5" />
+                            <XAxis dataKey="time" />
+                            <YAxis />
+                            <Tooltip />
+                        </LineChart>
+                    </section>
+                }
                 )}
 
-            </article> 
+            </article>
         )
     }
 }

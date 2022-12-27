@@ -1,5 +1,8 @@
 import { Component } from 'react'
 import { contactService } from '../services/contact.service'
+
+import { Transfer } from '../cmps/transfer.jsx'
+import { TransferList } from '../cmps/transfer-list.jsx'
 export class ContactDetails extends Component {
     state = {
         contact: null,
@@ -30,8 +33,9 @@ export class ContactDetails extends Component {
                     <h3>Phpne: {contact.phone}</h3>
                     <h3>Email: {contact.email}</h3>
                     <button className="btn neutral" onClick={this.onBack}>Back</button>
-
                 </section>
+                <Transfer />
+                <TransferList list={contact.transferList} />
             </main>
         )
     }

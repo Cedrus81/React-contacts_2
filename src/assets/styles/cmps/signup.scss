@@ -1,0 +1,17 @@
+.signup-container{
+    background: radial-gradient(343px at 46.3% 47.5%, rgb(242, 242, 242) 0%, rgb(225 234 238) 72.9%);
+    padding: 2em;
+    border-bottom-left-radius: 1em;
+    border-bottom-right-radius: 1em;
+    gap: 2em;
+    color: #346357;
+    img{
+        filter: invert(35%) sepia(13%) saturate(1146%) hue-rotate(114deg) brightness(83%) contrast(83%);
+    }
+    h1,h2{
+        margin: 0;
+    }
+    form{
+        gap: 0.3em;
+    }
+}
