@@ -1,3 +1,7 @@
+.contact-details-container{
+    gap: 2em;
+}
+
 .contact-details{
     background: radial-gradient(343px at 46.3% 47.5%, rgb(242, 242, 242) 0%, rgb(241, 241, 241) 72.9%);
     padding: 0 1em 1em 1em;
@@ -14,5 +18,27 @@
     }
     label{
         gap: 0.3em;
+    }
+}
+
+.transfer-list-container{
+    align-self: flex-start;
+    background: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
+    padding: 0 1em 1em 1em;
+    border-bottom-left-radius: 1em;
+    border-bottom-right-radius: 1em;
+    .transfer-list{
+        list-style: none;
+        padding: 0;
+        
+        .transfer-preview{
+            background-color: #c24d2c;
+            padding: 1em;
+            gap: 1em;
+            border-radius: 1em;
+            > *{
+                margin: 0;
+            }
+        }
     }
 }
