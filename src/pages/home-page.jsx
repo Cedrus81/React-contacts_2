@@ -12,9 +12,9 @@ export const HomePage = () => {
     const user = useSelector(state => state.userModule.loggedInUser)
     const [rate, setRate] = useState(null)
     useEffect(() => {
-        setRate(pRate => dispatch(getCurrentRate()))
+        setRate(() => dispatch(getCurrentRate()))
     }, [])
-    if (!rate) return <h1>Loading BC rates...</h1>
+    // if (!rate) return <h1>Loading BC rates...</h1>
     return (
         <main className="home-container flex column">
             <section className="home-header flex justify-center">
